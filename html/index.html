@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+    (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:2434567,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+    })(window,document, 'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>busca de restaurante</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form>
+                        <a class="btn btn-primary" onclick="searchRestaurant()">Buscar restaurante...</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 id='title'></h3>
+          <p id='restaurant'></p>
+          <p id='imdb'></p>
+          <img id="my_image" class="img-fluid">
+        </div> 
+      </div>
+    </div>
+    <br />
+
+    <script>
+        function searchRestaurant() {
+            $('#title').empty();
+            $('#restaurant').empty();
+            $('#imdb').empty();
+            $("#my_image").empty();
+
+        var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://127.0.0.1:3000/food/",
+        "method": "GET"
+        }
+
+        $.ajax(settings).done(function (response) { 
+        console.log(response);
+        $('#food').append(response. name_food + "(" + response.name_food + ")");
+        });
+    
+}
+    </script>
+    
+</body>
+</html>
